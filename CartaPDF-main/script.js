@@ -1,6 +1,6 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'Cartel.pdf', true); // Asegúrate de que sea el mismo nombre de tu carta
+    xhr.open('GET', 'Cartel.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
@@ -11,8 +11,8 @@ document.querySelector('.heart').addEventListener('click', function() {
         link.click();
         window.URL.revokeObjectURL(link.href);
 
-        // Reiniciar el temporizador cuando se descarga el archivo
-        restartCountdown();
+        // 🟢 Reiniciar el temporizador cuando se descarga el archivo
+        reiniciarTemporizador();
       } else {
         console.error('No se pudo descargar el archivo.');
       }
@@ -20,23 +20,25 @@ document.querySelector('.heart').addEventListener('click', function() {
     xhr.send();
 });
 
-function restartCountdown() {
-    let countDownMinutes = 48; // Define el tiempo en horas para la cuenta regresiva
-    let countDownDate = new Date().getTime() + (countDownMinutes * 60 * 60 * 1000);
+// Tiempo del contador en horas (2 días = 48 horas)
+var countDownHours = 48;
+var countDownDate;
+
+// 🟢 Función para reiniciar el temporizador
+function reiniciarTemporizador() {
+    countDownDate = new Date().getTime() + (countDownHours * 60 * 60 * 1000);
     localStorage.setItem('countDownDate', countDownDate.toString());
 }
 
-// Obtener la fecha de cuenta regresiva guardada
+// Verificar si ya hay un temporizador guardado
 var savedCountdown = localStorage.getItem('countDownDate');
-var countDownDate;
-
 if (!savedCountdown) {
-    restartCountdown();
-    countDownDate = parseInt(localStorage.getItem('countDownDate'), 10);
+    reiniciarTemporizador(); // Si no hay un temporizador guardado, iniciarlo
 } else {
     countDownDate = parseInt(savedCountdown, 10);
 }
 
+// 🟢 Función para actualizar la cuenta regresiva
 var x = setInterval(function() {
     var now = new Date().getTime();
     var distance = countDownDate - now;
@@ -50,8 +52,9 @@ var x = setInterval(function() {
 
     localStorage.setItem('countDownDate', countDownDate.toString());
 
+    // Si el contador llega a 0
     if (distance < 0) {
-        clearInterval(x); // Detiene el temporizador
+        clearInterval(x); // Detener el temporizador
         document.getElementById("countdown").textContent = "¡Nueva carta disponible!";
     }
 }, 1000);
