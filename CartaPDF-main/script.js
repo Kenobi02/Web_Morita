@@ -1,6 +1,6 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'Amada_Paula.pdf', true);// Asegurate que sea el mismo nombre de tu carta, al nombre escrito en esta linea.
+    xhr.open('GET', 'Cartel.pdf', true);// Asegurate que sea el mismo nombre de tu carta, al nombre escrito en esta linea.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
