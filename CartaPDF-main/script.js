@@ -1,13 +1,13 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'Frase.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
+    xhr.open('GET', 'te_amo.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
         const blob = xhr.response;
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'Frase_de_amor.pdf'; // Nombre con el que se descarga la carta
+        link.download = 'mi_razon_de_vivir.pdf'; // Nombre con el que se descarga la carta
         link.click();
         window.URL.revokeObjectURL(link.href);
 
