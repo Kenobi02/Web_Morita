@@ -7,7 +7,7 @@ document.querySelector('.heart').addEventListener('click', function() {
         const blob = xhr.response;
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'foquitas.pdf'; // Nombre con el que se descarga la carta
+        link.download = 'foto_full.png'; // Nombre con el que se descarga la carta
         link.click();
         window.URL.revokeObjectURL(link.href);
 
