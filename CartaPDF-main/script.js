@@ -1,13 +1,13 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'Foto_completa.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
+    xhr.open('GET', 'amor.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
         const blob = xhr.response;
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'foto_full.png'; // Nombre con el que se descarga la carta
+        link.download = 'te_amo.png'; // Nombre con el que se descarga la carta
         link.click();
         window.URL.revokeObjectURL(link.href);
 
