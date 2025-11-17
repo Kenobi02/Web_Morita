@@ -1,13 +1,13 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'Poema.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
+    xhr.open('GET', 'CartaNuevo', true); // Asegúrate que el nombre del archivo sea correcto.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
         const blob = xhr.response;
         const link = document.createElement('a');
         link.href = window.URL.createObjectURL(blob);
-        link.download = 'Como_todo_Comenzo.pdf'; // Nombre con el que se descarga la carta
+        link.download = 'feliz_mes_amor'; // Nombre con el que se descarga la carta
         link.click();
         window.URL.revokeObjectURL(link.href);
 
