@@ -1,6 +1,6 @@
 document.querySelector('.heart').addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'CartaNuevo', true); // Asegúrate que el nombre del archivo sea correcto.
+    xhr.open('GET', 'CartaNuevo.pdf', true); // Asegúrate que el nombre del archivo sea correcto.
     xhr.responseType = 'blob'; 
     xhr.onload = function() {
       if (xhr.status === 200) {
